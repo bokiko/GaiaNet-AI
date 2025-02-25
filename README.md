@@ -91,7 +91,7 @@ source ~/.bashrc
 
 1. Go to [https://gaianet.ai/reward](https://gaianet.ai/reward?invite_code=RXDpgT)
 2. Connect your EVM wallet
-3. Click "Node" → "CONNECT NODE"
+3. Click "Node" → "CONNECT NODE"(you can use my code when asked for referral : RXDpgT)
 4. Input your Node ID and Device ID from `gaianet info`
 5. Click "Join Domain" and select "Rivalz"
 
