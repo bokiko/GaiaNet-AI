@@ -39,6 +39,8 @@ You should see your GPU listed with driver information.
 
 ## Installation
 
+Connect to your machine via SSH and run:
+
 ```bash
 curl -sSfL 'https://github.com/GaiaNet-AI/gaianet-node/releases/latest/download/install.sh' | bash
 ```
@@ -51,37 +53,39 @@ source ~/.bashrc
 
 ## Configure and Start Your Node
 
-1. Initialize the node with a model appropriate for your GPU:
+1. Configure a model appropriate for your GPU:
 
    **For 8GB VRAM GPUs (RTX 3060 Ti, 3070, RTX 4060, 4060 Ti, A10G):**
    ```bash
-   gaianet init --config https://raw.githubusercontent.com/GaiaNet-AI/node-configs/main/qwen-1.5-0.5b-chat/config.json
+   gaianet config --chat-url https://huggingface.co/gaianet/Qwen1.5-0.5B-Chat-GGUF/resolve/main/Qwen1.5-0.5B-Chat-Q5_K_M.gguf --chat-ctx-size 4096 --prompt-template qwen-chat
    ```
 
    **For 10-12GB VRAM GPUs (RTX 3080, 3080 Ti, RTX 4070, 4070 Ti, A10, A2000):**
    ```bash
    gaianet config --chat-url https://huggingface.co/gaianet/Llama-3.2-3B-Instruct-GGUF/resolve/main/Meta-Llama-3.2-3B-Instruct-Q5_K_M.gguf --chat-ctx-size 4096 --prompt-template llama-3-chat
-   gaianet init
+   ```
+   
+   **For 16-24GB VRAM GPUs (RTX 3090, 3090 Ti, RTX 4080, 4090, A4000, A5000, A6000):**
+   ```bash
+   gaianet config --chat-url https://huggingface.co/gaianet/Qwen1.5-7B-Chat-Q5_K_M/resolve/main/Qwen1.5-7B-Chat-Q5_K_M.gguf --chat-ctx-size 32768 --prompt-template qwen-chat
    ```
    
    **For 32-80GB VRAM GPUs (A100, A30, A40, H100):**
    ```bash
    gaianet config --chat-url https://huggingface.co/gaianet/Llama-3-70B-Instruct-GGUF/resolve/main/Llama-3-70B-Instruct-Q4_K_M.gguf --chat-ctx-size 32768 --prompt-template llama-3-chat
-   gaianet init
    ```
 
-   **For 16-24GB VRAM GPUs (RTX 3090, 3090 Ti, RTX 4080, 4090, A4000, A5000, A6000):**
+2. Initialize the node:
    ```bash
-   gaianet config --chat-url https://huggingface.co/gaianet/Qwen1.5-7B-Chat-Q5_K_M/resolve/main/Qwen1.5-7B-Chat-Q5_K_M.gguf --chat-ctx-size 32768 --prompt-template qwen-chat
    gaianet init
    ```
 
-2. Start your node:
+3. Start your node:
    ```bash
    gaianet start
    ```
 
-3. Get your node information:
+4. Get your node information:
    ```bash
    gaianet info
    ```
@@ -91,7 +95,7 @@ source ~/.bashrc
 
 1. Go to [https://gaianet.ai/reward](https://gaianet.ai/reward?invite_code=RXDpgT)
 2. Connect your EVM wallet
-3. Click "Node" → "CONNECT NODE"(you can use my code when asked for referral : RXDpgT)
+3. Click "Node" → "CONNECT NODE" (you can use my code when asked for referral : RXDpgT)
 4. Input your Node ID and Device ID from `gaianet info`
 5. Click "Join Domain" and select "Rivalz"
 
