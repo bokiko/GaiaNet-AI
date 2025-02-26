@@ -2,7 +2,7 @@
 
 <div align="center">
   
-![Gaia Node](https://storage.googleapis.com/gaianet-public/assets/website-media/gaia-logo-primary.png)
+
 
 *Set up your Gaia Node and earn rewards by sharing computing power*
 
