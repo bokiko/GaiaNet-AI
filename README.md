@@ -2,7 +2,7 @@
 
 <div align="center">
   
-
+![Gaia Node](https://storage.googleapis.com/gaianet-public/assets/website-media/gaia-logo-primary.png)
 
 *Set up your Gaia Node and earn rewards by sharing computing power*
 
@@ -29,16 +29,17 @@ By running a Gaia Node, you're contributing to a distributed network of AI servi
 | **Storage** | 10GB free space | 20GB+ SSD |
 | **GPU** | See VRAM table below | See VRAM table below |
 
-### GPU VRAM Requirements
+### Hardware Requirements
 
-Choose a model based on your GPU's VRAM capacity:
+Choose a model based on your hardware capabilities:
 
-| VRAM | Supported GPU Models | Recommended AI Model |
-|------|----------------------|----------------------|
-| **8GB** | RTX 3060 Ti, RTX 3070, RTX 4060, RTX 4060 Ti, A10G | Qwen1.5-0.5B |
-| **10-12GB** | RTX 3080, RTX 3080 Ti, RTX 4070, RTX 4070 Ti, A10, A2000 | Llama-3.2-3B |
-| **16-24GB** | RTX 3090, RTX 3090 Ti, RTX 4080, RTX 4090, A4000, A5000, A6000, A100 (24GB) | Qwen1.5-7B |
-| **32-80GB** | A100 (40GB/80GB), A30, A40, H100 | Llama-3-70B |
+| Hardware | Supported Models | Recommended AI Model |
+|----------|------------------|----------------------|
+| **CPU or <8GB VRAM** | Any CPU, Integrated GPUs, Low-end GPUs | Qwen2-0.5B |
+| **8GB VRAM** | RTX 3060 Ti, RTX 3070, RTX 4060, RTX 4060 Ti, A10G | Qwen1.5-0.5B |
+| **10-12GB VRAM** | RTX 3080, RTX 3080 Ti, RTX 4070, RTX 4070 Ti, A10, A2000 | Llama-3.2-3B |
+| **16-24GB VRAM** | RTX 3090, RTX 3090 Ti, RTX 4080, RTX 4090, A4000, A5000, A6000, A100 (24GB) | Qwen1.5-7B |
+| **32-80GB VRAM** | A100 (40GB/80GB), A30, A40, H100 | Llama-3-70B |
 
 ### Supported Operating Systems
 
@@ -98,9 +99,24 @@ Set up environment variables:
 source ~/.bashrc
 ```
 
-### 2. Configure AI Model Based on Your GPU
+### 2. Configure AI Model Based on Your Hardware
 
-Select a configuration based on your GPU's VRAM:
+Select a configuration based on your hardware capabilities:
+
+<details>
+<summary><b>For CPU or GPUs with below 8GB VRAM</b></summary>
+
+```bash
+# Stop any running instance
+gaianet stop
+
+# Initialize with Qwen2-0.5B (optimized for CPU and low VRAM)
+gaianet init --config https://raw.githubusercontent.com/GaiaNet-AI/node-configs/main/qwen2-0.5b-instruct/config.json
+
+# Start the node
+gaianet start
+```
+</details>
 
 <details>
 <summary><b>For 8GB VRAM GPUs (RTX 3060 Ti, 3070, 4060, 4060 Ti, A10G)</b></summary>
