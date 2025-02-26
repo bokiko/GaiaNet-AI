@@ -104,7 +104,7 @@ source ~/.bashrc
 Select a configuration based on your hardware capabilities:
 
 <details>
-<summary><b>For CPU or GPUs below 8GB VRAM</b></summary>
+<summary><b>For CPU or GPUs with below 8GB VRAM</b></summary>
 
 ```bash
 # Stop any running instance
@@ -226,9 +226,39 @@ gaianet init
 gaianet start
 ```
 
-## Troubleshooting Guide
+## Auto-restart After Reboot
 
-### Common Issues and Solutions
+By default, your Gaia Node won't automatically restart after a system reboot. To set up auto-restart:
+
+```bash
+# Create a systemd service file
+cat > /etc/systemd/system/gaianode.service << 'EOF'
+[Unit]
+Description=Gaia Node Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root
+ExecStart=/bin/bash -c "source /root/.bashrc && gaianet start"
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# Enable and start the service
+systemctl daemon-reload
+systemctl enable gaianode.service
+systemctl start gaianode.service
+```
+
+To check service status:
+```bash
+systemctl status gaianode.service
+```
 
 <details>
 <summary><b>"Too many open files" error on macOS</b></summary>
