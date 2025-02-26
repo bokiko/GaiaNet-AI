@@ -104,7 +104,7 @@ source ~/.bashrc
 Select a configuration based on your hardware capabilities:
 
 <details>
-<summary><b>For CPU or GPUs with below 8GB VRAM</b></summary>
+<summary><b>For CPU or GPUs below 8GB VRAM</b></summary>
 
 ```bash
 # Stop any running instance
