@@ -330,6 +330,6 @@ For additional help, join our community:
 
 <div align="center">
   
-*Created by Bokiko - Last updated February 2025*
+*Created by Bokiko - Last updated May 2025*
 
 </div>
