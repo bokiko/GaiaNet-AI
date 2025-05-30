@@ -323,7 +323,7 @@ Then reconfigure and restart.
 
 For additional help, join our community:
 - [Discord](https://discord.gg/gaianet)
-- [Twitter/X](https://twitter.com/GaiaNetAI)
+- [Twitter/X](https://twitter.com/Gaianet_AI)
 - [GitHub](https://github.com/GaiaNet-AI)
 
 ---
